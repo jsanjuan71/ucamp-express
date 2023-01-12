@@ -5,7 +5,9 @@ const express       = require('express')
 const app           = express() 
 const bodyParser    = require("body-parser")
 
-const port = 5000
+require('dotenv').config()
+
+const port = process.env.SERVER_PORT || 8080
 
 
 // 2. MIDDLEWARES
@@ -111,6 +113,6 @@ app.delete("/", (req, res) => {
 // 4. SERVIDOR
 app.listen(port, () => {
 
-    console.log(`Running on http://localhost:${port}`)
+    console.log(`Running server on http://localhost:${port}`)
 
 })
