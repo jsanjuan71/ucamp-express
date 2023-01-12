@@ -17,6 +17,21 @@ app.use(bodyParser.urlencoded({extended:true}))
 // 3. RUTEO
 // Las rutas establecidas para nuestro servidor
 
+// HEALTH CHECK
+
+app.get("/health-check", (req, res) => {
+    res.status(200)
+        .json({
+            "done": true,
+            "api" : {
+                "name" : "ucamp-express",
+                "version": "0.1.0",
+                "owner" : "UCamp",
+                "developer": "julio Sanjuan"
+            }
+        });
+});
+
 
 // LEER TODAS LAS PERSONAS
 app.get("/", (req, res) => {
